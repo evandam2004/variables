@@ -47,6 +47,14 @@ int main(void)
         {
             LED3 = 0;
         }
+         if(SW2Count >= maxCount)
+        {
+            LED4 = 1;
+        }
+        else
+        {
+            LED4 = 0;
+        }
         
         if(SW2Count >= maxCount)
         {
@@ -79,11 +87,23 @@ int main(void)
  *    What are some benefits and drawbacks of using 8-bit variables in an 8-bit
  *    microcontroller?
  * 
+ * 
+ * the max value that can be stored in an 8 bit variable is 256
+ * For being an 8 bit value it will be easier since it matches 8bits for 8 bits
+ * 
+ * 
+ * 
+ *  
  * 2. The constant 'maxCount' is defined using a declaration similar to that
  *    used for the SW2Count variable, but with the 'const' prefix added in the
  *    declaration. Can you think of some advantages of declaring a constant like
  *    this, using a separate statement above the main code, rather than just
  *    embedding the value of the constant where it is needed in the code?
+ * 
+ * if it something that is going to be constant, that means it wont be able
+ * to change. on the rare chance it will be compiled so that it saves ram
+ * 
+ * 
  * 
  * 3. This program should light LED D3 every time SW2 is pressed, and light
  *    LED D4 once the count reaches 50. Try it, and count how many times you
@@ -92,6 +112,10 @@ int main(void)
  * 
  *    Did your count reach 50? Can you describe what the program is doing?
  *    (Hint: try pressing and releasing the button at different rates of speed.)
+ * For me i only pushed the button 5 times until the light turned on, if I also
+ * hold down the button the light turns on.
+ * 
+ * 
  * 
  * 4. Modify the second 'if' structure to add the else block, as shown below:
 
