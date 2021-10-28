@@ -27,6 +27,8 @@ const unsigned char maxCount = 50;
 // Program variable definitions
 unsigned char SW2Count = 0;
 bool SW2Pressed = false;
+unsigned char SW5Count = 0;
+bool SW5Pressed = false;
 
 int main(void)
 {
@@ -47,7 +49,7 @@ int main(void)
         {
             LED3 = 0;
         }
-         if(SW2Count >= maxCount)
+        if(SW2Count >= maxCount)
         {
             LED4 = 1;
         }
@@ -56,16 +58,34 @@ int main(void)
             LED4 = 0;
         }
         
-        if(SW2Count >= maxCount)
-        {
-            LED4 = 1;
-        }
         
+        
+      
+        if(SW5 == 0)
+        {
+            LED6 = 1;
+            SW5Count = SW5Count + 1;
+        }
+        else
+        {
+            LED6 = 0;
+        }
+        if(SW5Count >= maxCount)
+        {
+            LED5 = 1;
+        }
+        else
+        {
+            LED5 = 0;
+        }
+       
         // Reset count and turn off LED D4
-        if(SW3 == 0)
+        if(SW4 && SW3 == 0)
         {
             LED4 = 0;
             SW2Count = 0;
+            LED5 = 0;
+            SW5Count = 0;
         }
         
         // Add a short delay to the main while loop.
@@ -148,7 +168,7 @@ int main(void)
  *    to the current SW2COunt value is performed, but in a more compact form.
  *    Adding this code, what is the maximum value that the SW2Count variable
  *    will reach? How does this affect the operation of LED D4 when SW2 is held?
- *
+ * LED4 seems to be unaffected 
  * 6. The fundamental problem with this program is that pushbutton SW2 is sensed
  *    in each cycle of the loop and if its state is read as pressed, another
  *    count is added to the SW2Count variable. Rather than responding to state,
