@@ -43,50 +43,12 @@ int main(void)
         if(SW2 == 0)
         {
             LED3 = 1;
-            SW2Count = SW2Count + 1;
         }
-        else
+        if(SW3 == 0)
         {
             LED3 = 0;
         }
-        if(SW2Count >= maxCount)
-        {
-            LED4 = 1;
-        }
-        else
-        {
-            LED4 = 0;
-        }
         
-        
-        
-      
-        if(SW5 == 0)
-        {
-            LED6 = 1;
-            SW5Count = SW5Count + 1;
-        }
-        else
-        {
-            LED6 = 0;
-        }
-        if(SW5Count >= maxCount)
-        {
-            LED5 = 1;
-        }
-        else
-        {
-            LED5 = 0;
-        }
-       
-        // Reset count and turn off LED D4
-        if(SW4 && SW3 == 0)
-        {
-            LED4 = 0;
-            SW2Count = 0;
-            LED5 = 0;
-            SW5Count = 0;
-        }
         
         // Add a short delay to the main while loop.
         __delay_ms(10);
@@ -262,11 +224,66 @@ int main(void)
  *    by clearing the count and turning off the LEDs if either SW3 or SW4 is
  *    pressed.
  * 
+ * if(SW2 == 0)
+        {
+            LED3 = 1;
+            SW2Count = SW2Count + 1;
+        }
+        else
+        {
+            LED3 = 0;
+        }
+        if(SW2Count >= maxCount)
+        {
+            LED4 = 1;
+        }
+        else
+        {
+            LED4 = 0;
+        }
+        
+        
+        
+      
+        if(SW5 == 0)
+        {
+            LED6 = 1;
+            SW5Count = SW5Count + 1;
+        }
+        else
+        {
+            LED6 = 0;
+        }
+        if(SW5Count >= maxCount)
+        {
+            LED5 = 1;
+        }
+        else
+        {
+            LED5 = 0;
+        }
+       
+        // Reset count and turn off both the leds 
+        if(SW4 == 0 || SW3 == 0)
+        {
+            LED4 = 0;
+            SW2Count = 0;
+            LED5 = 0;
+            SW5Count = 0;
+        }
+        
  * 2. Use your knowledge of Boolean variables and logical conditions to simulate
  *    a toggle button. Each new press of the toggle button will 'toggle' an LED
  *    to its opposite state. (Toggle buttons are commonly used as push-on, 
  *    push-off power buttons in digital devices.)
- * 
+ * if(SW2 == 0)
+        {
+            LED3 = 1;
+        }
+        if(SW3 == 0)
+        {
+            LED3 = 0;
+        }
  * 3. A multi-function button can be used to enable one action when pressed, and
  *    a second or alternate action when held. A variable that counts loop cycles
  *    can be used to determine how long a button is held (just as the first
